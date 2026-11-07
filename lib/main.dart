@@ -2213,9 +2213,14 @@ class _MainShellState extends State<MainShell> {
   // ==========================================
   Widget _buildCustomExamScreen() {
     final subs = kSyllabus[mtLevelVal] ?? kSyllabus["Admission"]!;
-    final chapterItems = >[
+    
+    // ============================================
+    // FIX 1: TYPE ADDED HERE -> List>
+    // ============================================
+    final List> chapterItems = [
       {"key": "ALL", "display": "📑 সব অধ্যায়"}
     ];
+    
     if (mtSubjectVal == "ALL") {
       for (final sName in subs.keys) {
         final chs = getChaptersForPaper(sName, mtPaperVal, mtLevelVal);
@@ -3010,6 +3015,9 @@ class _MainShellState extends State<MainShell> {
     );
   }
 
+  // ============================================
+  // FIX 2: TYPE ADDED HERE -> List>
+  // ============================================
   void _showPickerModal({
     required String title,
     required List> items,
